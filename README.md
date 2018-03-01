@@ -7,6 +7,5 @@
 This app lists movies according to 2 filters - Popularity and Top Rated movies.
 
 # Libraries Used
-### General information
 - [ShapeOfView](https://github.com/florent37/ShapeOfView)
 - [Picasso](https://github.com/square/picasso)

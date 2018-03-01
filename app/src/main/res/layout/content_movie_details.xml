@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a000000"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.rajatcube.popularmovies.activity.MovieDetails"
+    tools:showIn="@layout/activity_movie_details">
+
+    <LinearLayout
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5">
+            <com.github.florent37.shapeofview.shapes.ArcView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:arc_cropDirection="outside"
+                app:arc_position="bottom"
+                app:arc_height="24dp"
+                app:diagonal_direction="left"
+                app:diagonal_position="bottom"
+                app:diagonal_angle="10">
+                <ImageView
+                    android:id="@+id/movie_detail_poster_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:scaleType="fitXY"/>
+            </com.github.florent37.shapeofview.shapes.ArcView>
+
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:circle_borderWidth="2dp"
+                app:circle_borderColor="#FFF"
+                android:padding="2dp"
+                android:elevation="2dp"
+                android:layout_gravity="end|top"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:id="@+id/movie_detail_vote_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="28sp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#ffffff"
+                    android:padding="8dp"
+                    android:text="10"/>
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <TextView
+                android:paddingLeft="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingRight="4dp"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:background="#FFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"/>
+
+            <TextView
+                android:paddingLeft="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingRight="4dp"
+                android:background="#FFF"
+                android:id="@+id/movie_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:layout_marginBottom="2dp"/>
+
+            <TextView
+                android:paddingLeft="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingRight="4dp"
+                android:background="#FFF"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Releasing on "/>
+
+            <TextView
+                android:paddingLeft="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingRight="4dp"
+                android:background="#FFF"
+                android:id="@+id/movie_detail_release_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Releasing on "
+                android:layout_marginBottom="2dp"/>
+
+            <TextView
+                android:paddingLeft="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingRight="4dp"
+                android:background="#FFF"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Synopsis"/>
+
+            <TextView
+                android:paddingLeft="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingRight="4dp"
+                android:background="#FFF"
+                android:id="@+id/movie_detail_plot_synopsis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Synopsis"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

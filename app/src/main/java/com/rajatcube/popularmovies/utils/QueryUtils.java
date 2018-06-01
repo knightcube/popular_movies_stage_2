@@ -32,17 +32,12 @@ public class QueryUtils {
     private static String createStringUrl() {
         Uri.Builder builder = new Uri.Builder();
         String filterBy = "";
+        String url = "";
         if (filter ==0){
-            filterBy = Constants.POPULARITY_TAG;
+            url = Constants.POPULAR_MOVIES_BASE_URL;
         }else{
-            filterBy = Constants.TOP_RATED_TAG;
+            url = Constants.TOP_RATED_MOVIES_BASE_URL;
         }
-        builder.scheme("https")
-                .encodedAuthority(Constants.BASE_URL)
-                .appendQueryParameter("api_key", Constants.API_KEY)
-                .appendQueryParameter("language","en-US")
-                .appendQueryParameter("sort_by",filterBy)  ;
-        String url = builder.build().toString();
         return url;
     }
 

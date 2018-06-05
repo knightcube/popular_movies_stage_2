@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.github.florent37:shapeofview:1.0.4'
     //Room
     implementation "android.arch.persistence.room:runtime:$room_version"
+    implementation 'com.android.support:support-v4:26.1.0'
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"

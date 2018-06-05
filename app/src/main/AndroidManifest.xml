@@ -25,11 +25,14 @@
             android:name=".activity.MovieDetails"
             android:label="@string/title_activity_movie_details"
             android:parentActivityName=".activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
+            android:parentActivityName=".activity.MainActivity"
             android:name=".activity.FavouriteMoviesActivity"
             android:label="@string/title_activity_favourite_movies"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

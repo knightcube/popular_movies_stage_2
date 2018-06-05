@@ -37,6 +37,7 @@ public class FavouriteMoviesActivity extends AppCompatActivity implements Movies
         setContentView(R.layout.activity_favourite_movies);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         favouritesRv = (RecyclerView) findViewById(R.id.favourite_movies_rv);
         favouritesRv.setLayoutManager(new GridLayoutManager(FavouriteMoviesActivity.this, 2));
         moviesRoomDatabase = MoviesRoomDatabase.getDatabaseInstance(getApplicationContext());

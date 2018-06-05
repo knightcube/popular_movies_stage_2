@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.rajatcube.popularmovies.utils.Constants;
 import com.rajatcube.popularmovies.R;
 import com.rajatcube.popularmovies.model.Movies;
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,8 +22,8 @@ import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
 
-    List<Movies> moviesList;
-    Context context;
+    private List<Movies> moviesList;
+    private Context context;
     private final ListItemClickListener mOnClickListener;
     public MoviesAdapter(List<Movies> moviesList,Context context,ListItemClickListener mOnClickListener) {
         this.moviesList = moviesList;
@@ -37,14 +38,15 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     }
 
     public interface ListItemClickListener{
-         void onListItemClick(int clickedItemIndex);
+         void onListItemClick(int clickedItemIndex,List<Movies> moviesList);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         Movies currentMovie = moviesList.get(position);
-        Picasso.with(context).load(currentMovie.getPosterPath()).into(holder.moviePoster);
+        String actualMoviePosterPath = Constants.IMAGE_BASE_URL+Constants.SMALL_IMG_SIZE+currentMovie.getPosterPath();
+        Picasso.with(context).load(actualMoviePosterPath).memoryPolicy(MemoryPolicy.NO_CACHE,MemoryPolicy.NO_STORE).into(holder.moviePoster);
         Log.i("TAG", "onBindViewHolder: "+currentMovie.getPosterPath());
     }
 
@@ -64,7 +66,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         @Override
         public void onClick(View view) {
             int clickedPosition = getAdapterPosition();
-            mOnClickListener.onListItemClick(clickedPosition);
+            mOnClickListener.onListItemClick(clickedPosition,moviesList);
         }
     }
 }

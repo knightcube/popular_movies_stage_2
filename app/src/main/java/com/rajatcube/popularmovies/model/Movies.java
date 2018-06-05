@@ -1,5 +1,10 @@
 package com.rajatcube.popularmovies.model;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+
 import com.rajatcube.popularmovies.utils.Constants;
 
 import java.io.Serializable;
@@ -11,24 +16,30 @@ import java.util.List;
 /**
  * Created by Rajat Kumar Gupta on 28-02-2018.
  */
-
+@Entity(tableName = "movies_table")
 public class Movies implements Serializable{
     private int voteCount;
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     private int id;
     private boolean video;
     private float voteAverage;
+    @ColumnInfo(name = "title")
     private String title;
     private float popularity;
     private String posterPath;
     private String originalLanguage;
     private String originalTitle;
-    private List<Integer> genreIds = null;
     private String backdropPath;
     private boolean adult;
     private String overview;
     private String releaseDate;
+    private boolean isSaved;
 
-    public Movies(int voteCount, int id, boolean video, float voteAverage, String title, float popularity, String posterPath, String originalLanguage, String originalTitle, List<Integer> genreIds, String backdropPath, boolean adult, String overview, String releaseDate) {
+
+
+    @Ignore
+    public Movies(int voteCount, int id, boolean video, float voteAverage, String title, float popularity, String posterPath, String originalLanguage, String originalTitle, String backdropPath, boolean adult, String overview, String releaseDate) {
         this.voteCount = voteCount;
         this.id = id;
         this.video = video;
@@ -38,20 +49,21 @@ public class Movies implements Serializable{
         this.posterPath = posterPath;
         this.originalLanguage = originalLanguage;
         this.originalTitle = originalTitle;
-        this.genreIds = genreIds;
         this.backdropPath = backdropPath;
         this.adult = adult;
         this.overview = overview;
         this.releaseDate = releaseDate;
     }
 
-    public Movies(int voteCount, float voteAverage, String title, String posterPath,String releaseDate,String overview) {
+    public Movies(int id,int voteCount, float voteAverage, String title, String posterPath,String releaseDate,String overview,boolean isSaved) {
+        this.id = id;
         this.voteCount = voteCount;
         this.voteAverage = voteAverage;
         this.title = title;
         this.posterPath = posterPath;
         this.releaseDate = releaseDate;
         this.overview = overview;
+        this.isSaved = isSaved;
     }
 
     public int getVoteCount() {
@@ -103,7 +115,7 @@ public class Movies implements Serializable{
     }
 
     public String getPosterPath() {
-        return Constants.IMAGE_BASE_URL+Constants.SMALL_IMG_SIZE+posterPath;
+        return posterPath;
     }
 
     public void setPosterPath(String posterPath) {
@@ -124,14 +136,6 @@ public class Movies implements Serializable{
 
     public void setOriginalTitle(String originalTitle) {
         this.originalTitle = originalTitle;
-    }
-
-    public List<Integer> getGenreIds() {
-        return genreIds;
-    }
-
-    public void setGenreIds(List<Integer> genreIds) {
-        this.genreIds = genreIds;
     }
 
     public String getBackdropPath() {
@@ -158,15 +162,18 @@ public class Movies implements Serializable{
         this.overview = overview;
     }
 
-    public String getReleaseDate() throws ParseException {
-        String strCurrentDate = releaseDate;
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date newDate = format.parse(strCurrentDate);
-        format = new SimpleDateFormat("dd/MM/yyyy");
-        return format.format(newDate);
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+    public boolean isSaved() {
+        return isSaved;
+    }
+
+    public void setSaved(boolean saved) {
+        isSaved = saved;
     }
 }

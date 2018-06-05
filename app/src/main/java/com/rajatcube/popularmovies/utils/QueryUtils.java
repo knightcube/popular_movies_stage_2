@@ -104,12 +104,13 @@ public class QueryUtils {
             for (int i = 0; i < resultsArray.length(); i++) {
                 JSONObject moviesResult = resultsArray.getJSONObject(i);
                 String movieTitle = moviesResult.getString("title");
+                int movieId = moviesResult.getInt("id");
                 int movieVoteCount = moviesResult.getInt("vote_count");
                 String moviePosterPath = moviesResult.getString("poster_path");
                 float movieVoteAverage = (float) moviesResult.getDouble("vote_average");
                 String movieReleaseDate = moviesResult.getString("release_date");
                 String movieOverview = moviesResult.getString("overview");
-                listOfMovies.add(new Movies(movieVoteCount,movieVoteAverage,movieTitle,moviePosterPath,movieReleaseDate,movieOverview));
+                listOfMovies.add(new Movies(movieId,movieVoteCount,movieVoteAverage,movieTitle,moviePosterPath,movieReleaseDate,movieOverview,false));
             }
         } catch (JSONException e) {
             e.printStackTrace();

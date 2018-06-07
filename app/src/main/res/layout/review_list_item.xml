@@ -11,14 +11,14 @@
         android:id="@+id/review_author_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Author"
+        android:text="@string/author"
         android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/review_content_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Content" />
+        android:text="@string/content" />
 
     <TextView
         android:layout_width="match_parent"

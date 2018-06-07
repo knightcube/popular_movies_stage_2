@@ -6,36 +6,29 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.common.Priority;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.rajatcube.popularmovies.R;
-import com.rajatcube.popularmovies.activity.MovieDetails;
 import com.rajatcube.popularmovies.adapter.TrailerAdapter;
-import com.rajatcube.popularmovies.utils.Constants;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TrailerBottomSheetFragment extends BottomSheetDialogFragment {
+public class TrailerBottomSheetFragment extends BottomSheetDialogFragment implements TrailerAdapter.TrailerItemClickListener{
 
     private List<String> trailerLinks;
-    private TrailerAdapter trailerAdapter;
+
     public TrailerBottomSheetFragment() {
         // Required empty public constructor
     }
@@ -45,25 +38,28 @@ public class TrailerBottomSheetFragment extends BottomSheetDialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_trailer_bottom_sheet, container, false);
-        ListView trailerListView = rootView.findViewById(R.id.trailer_list_view);
+        RecyclerView trailerRecyclerView = rootView.findViewById(R.id.trailer_recycler_view);
+        ImageView emptyResultsIv = rootView.findViewById(R.id.empty_state_image);
         if (getArguments() != null) {
             trailerLinks = getArguments().getStringArrayList("TRAILER_LINKS");
-        }
-        trailerAdapter = new TrailerAdapter(getContext(),trailerLinks);
-        trailerListView.setAdapter(trailerAdapter);
-        trailerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                trailerLinks.get(position);
-                playTrailer(Uri.parse(trailerLinks.get(position)));
+            if (trailerLinks.size() == 0) {
+                emptyResultsIv.setVisibility(View.VISIBLE);
+            } else {
+                emptyResultsIv.setVisibility(View.GONE);
             }
-        });
-
-
+        }
+        trailerRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        TrailerAdapter trailerAdapter = new TrailerAdapter(getContext(), trailerLinks, this);
+        trailerRecyclerView.setAdapter(trailerAdapter);
         return rootView;
     }
     private void playTrailer(Uri parseTrailer) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, parseTrailer);
         startActivity(browserIntent);
+    }
+
+    @Override
+    public void onTrailerClick(int clickedItemIndex, List<String> trailerList) {
+        playTrailer(Uri.parse(trailerLinks.get(clickedItemIndex)));
     }
 }

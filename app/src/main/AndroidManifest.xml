@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MovieDetails"
+            android:name=".activity.MovieDetailsActivity"
             android:label="@string/title_activity_movie_details"
             android:parentActivityName=".activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

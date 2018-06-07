@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/reviews_header_txt"
-        android:text="Reviews"
+        android:text="@string/reviews"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         android:layout_width="match_parent"
@@ -19,7 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/noresults"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:contentDescription="TODO" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/reviews_header_txt"

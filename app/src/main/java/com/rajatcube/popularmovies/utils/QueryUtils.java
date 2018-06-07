@@ -27,12 +27,11 @@ import java.util.List;
 public class QueryUtils {
 
 
-    private static String TAG ="QueryUtils";
     public static int filter = 0;
     private static String createStringUrl() {
         Uri.Builder builder = new Uri.Builder();
         String filterBy = "";
-        String url = "";
+        String url;
         if (filter ==0){
             url = Constants.POPULAR_MOVIES_BASE_URL;
         }else{
@@ -110,7 +109,8 @@ public class QueryUtils {
                 float movieVoteAverage = (float) moviesResult.getDouble("vote_average");
                 String movieReleaseDate = moviesResult.getString("release_date");
                 String movieOverview = moviesResult.getString("overview");
-                listOfMovies.add(new Movies(movieId,movieVoteCount,movieVoteAverage,movieTitle,moviePosterPath,movieReleaseDate,movieOverview,false));
+                String backdropPath = moviesResult.getString("backdrop_path");
+                listOfMovies.add(new Movies(movieId,movieVoteCount,movieVoteAverage,movieTitle,moviePosterPath,movieReleaseDate,movieOverview,false,backdropPath));
             }
         } catch (JSONException e) {
             e.printStackTrace();

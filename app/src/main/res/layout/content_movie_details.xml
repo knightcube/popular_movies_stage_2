@@ -4,19 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1a000000"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.rajatcube.popularmovies.activity.MovieDetails"
+    tools:context="com.rajatcube.popularmovies.activity.MovieDetailsActivity"
     tools:showIn="@layout/activity_movie_details">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/movie_detail_footer"
-        android:background="#1a000000">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/movie_detail_footer">
 
         <LinearLayout
-            android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -26,23 +23,26 @@
                 android:layout_height="0dp"
                 android:layout_weight="2.5">
 
-                <com.github.florent37.shapeofview.shapes.ArcView
+                <com.github.florent37.shapeofview.shapes.CutCornerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:arc_cropDirection="outside"
-                    app:arc_height="24dp"
-                    app:arc_position="bottom"
-                    app:diagonal_angle="10"
-                    app:diagonal_direction="left"
-                    app:diagonal_position="bottom">
+                    app:cutCorner_bottomRightSize="200dp"
+                    >
+                    <!--app:arc_cropDirection="outside"-->
+                    <!--app:arc_height="24dp"-->
+                    <!--app:arc_position="bottom"-->
+                    <!--app:diagonal_angle="10"-->
+                    <!--app:diagonal_direction="left"-->
+                    <!--app:diagonal_position="bottom">-->
 
                     <ImageView
-                        android:id="@+id/movie_detail_poster_image"
+                        android:id="@+id/movie_detail_backdrop_image"
                         android:layout_width="match_parent"
                         android:layout_height="350dp"
-                        android:contentDescription="Image Loading"
+                        android:contentDescription="@string/image_loading"
                         android:scaleType="fitXY" />
-                </com.github.florent37.shapeofview.shapes.ArcView>
+                </com.github.florent37.shapeofview.shapes.CutCornerView>
+
 
                 <com.github.florent37.shapeofview.shapes.CircleView
                     android:layout_width="wrap_content"
@@ -54,7 +54,8 @@
                     android:elevation="2dp"
                     android:padding="2dp"
                     app:circle_borderColor="#FFF"
-                    app:circle_borderWidth="2dp">
+                    app:circle_borderWidth="2dp"
+                    tools:targetApi="lollipop">
 
                     <TextView
                         android:id="@+id/movie_detail_vote_average"
@@ -62,11 +63,55 @@
                         android:layout_height="wrap_content"
                         android:background="@color/colorPrimary"
                         android:padding="8dp"
-                        android:text="10"
+                        android:text="@string/_10"
                         android:textColor="#ffffff"
                         android:textSize="28sp" />
 
                 </com.github.florent37.shapeofview.shapes.CircleView>
+
+                <ImageView
+                    android:id="@+id/movie_detail_poster_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="1dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:contentDescription="TODO" />
+
+                <TextView
+                    android:background="@color/colorPrimaryLight"
+                    android:id="@+id/movie_detail_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/movie_detail_poster_image"
+                    android:layout_toStartOf="@+id/movie_detail_poster_image"
+                    android:textColor="#FFF"
+                    android:textSize="24sp"
+                    android:paddingEnd="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingStart="4dp"
+                    android:text="@string/title"
+                    android:layout_above="@+id/movie_detail_release_date"/>
+
+                <TextView
+                    android:background="@color/colorPrimaryLight"
+                    android:id="@+id/movie_detail_release_date"
+                    android:layout_width="match_parent" android:layout_toLeftOf="@+id/movie_detail_poster_image"
+                    android:layout_toStartOf="@+id/movie_detail_poster_image"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:textColor="#FFF"
+                    android:paddingEnd="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingStart="4dp"
+                    android:text="@string/releasing_on" />
 
             </RelativeLayout>
 
@@ -84,55 +129,7 @@
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:paddingStart="4dp"
-                    android:text="Title"
-                    android:textColor="#000"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/movie_detail_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:background="#FFF"
-                    android:paddingEnd="4dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:paddingStart="4dp"
-                    android:text="Title" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#FFF"
-                    android:paddingEnd="4dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:paddingStart="4dp"
-                    android:text="Releasing on "
-                    android:textColor="#000"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/movie_detail_release_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:background="#FFF"
-                    android:paddingEnd="4dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:paddingStart="4dp"
-                    android:text="Releasing on " />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#FFF"
-                    android:paddingEnd="4dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:paddingStart="4dp"
-                    android:text="Synopsis"
+                    android:text="@string/synopsis"
                     android:textColor="#000"
                     android:textSize="18sp" />
 
@@ -145,7 +142,7 @@
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:paddingStart="4dp"
-                    android:text="Synopsis" />
+                    android:text="@string/synopsis" />
 
             </LinearLayout>
         </LinearLayout>
@@ -166,7 +163,7 @@
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:text="Trailers"
+            android:text="@string/trailers"
             android:textColor="#FFF" />
 
         <Button
@@ -177,17 +174,16 @@
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:text="Save"
+            android:text="@string/save"
             android:textColor="#FFF" />
 
         <Button
             android:id="@+id/review_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/trailer_btn"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:text="Reviews"
+            android:text="@string/reviews"
             android:textColor="#FFF" />
     </LinearLayout>
 

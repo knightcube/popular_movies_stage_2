@@ -36,8 +36,6 @@ public class Movies implements Serializable{
     private String releaseDate;
     private boolean isSaved;
 
-
-
     @Ignore
     public Movies(int voteCount, int id, boolean video, float voteAverage, String title, float popularity, String posterPath, String originalLanguage, String originalTitle, String backdropPath, boolean adult, String overview, String releaseDate) {
         this.voteCount = voteCount;
@@ -55,7 +53,7 @@ public class Movies implements Serializable{
         this.releaseDate = releaseDate;
     }
 
-    public Movies(int id,int voteCount, float voteAverage, String title, String posterPath,String releaseDate,String overview,boolean isSaved) {
+    public Movies(int id,int voteCount, float voteAverage, String title, String posterPath,String releaseDate,String overview,boolean isSaved,String backdropPath) {
         this.id = id;
         this.voteCount = voteCount;
         this.voteAverage = voteAverage;
@@ -64,22 +62,15 @@ public class Movies implements Serializable{
         this.releaseDate = releaseDate;
         this.overview = overview;
         this.isSaved = isSaved;
+        this.backdropPath = backdropPath;
     }
 
     public int getVoteCount() {
         return voteCount;
     }
 
-    public void setVoteCount(int voteCount) {
-        this.voteCount = voteCount;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public boolean isVideo() {
@@ -94,16 +85,8 @@ public class Movies implements Serializable{
         return voteAverage;
     }
 
-    public void setVoteAverage(float voteAverage) {
-        this.voteAverage = voteAverage;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public float getPopularity() {
@@ -116,10 +99,6 @@ public class Movies implements Serializable{
 
     public String getPosterPath() {
         return posterPath;
-    }
-
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
     }
 
     public String getOriginalLanguage() {
@@ -142,10 +121,6 @@ public class Movies implements Serializable{
         return backdropPath;
     }
 
-    public void setBackdropPath(String backdropPath) {
-        this.backdropPath = backdropPath;
-    }
-
     public boolean isAdult() {
         return adult;
     }
@@ -158,17 +133,10 @@ public class Movies implements Serializable{
         return overview;
     }
 
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
     public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-    }
     public boolean isSaved() {
         return isSaved;
     }

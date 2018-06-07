@@ -5,16 +5,16 @@
     <item
         android:id="@+id/action_popular"
         android:orderInCategory="100"
-        android:title="Popular"
+        android:title="@string/popular"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_top_rated"
         android:orderInCategory="100"
-        android:title="Top rated"
+        android:title="@string/top_rated"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_favourites"
-        android:title="Favourites"
+        android:title="@string/favourites"
         app:showAsAction="never"/>
 
 </menu>

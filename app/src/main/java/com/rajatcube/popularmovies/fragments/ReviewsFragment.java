@@ -1,7 +1,6 @@
 package com.rajatcube.popularmovies.fragments;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
@@ -16,13 +15,8 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.androidnetworking.interfaces.ParsedRequestListener;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.rajatcube.popularmovies.R;
-import com.rajatcube.popularmovies.activity.MovieDetails;
 import com.rajatcube.popularmovies.adapter.ReviewsAdapter;
 import com.rajatcube.popularmovies.model.ReviewResult;
 

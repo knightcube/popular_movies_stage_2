@@ -2,11 +2,7 @@ package com.rajatcube.popularmovies;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 
-import com.rajatcube.popularmovies.activity.MovieDetails;
-import com.rajatcube.popularmovies.adapter.MoviesAdapter;
 import com.rajatcube.popularmovies.model.Movies;
 import com.rajatcube.popularmovies.utils.QueryUtils;
 

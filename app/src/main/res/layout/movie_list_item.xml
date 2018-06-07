@@ -7,5 +7,6 @@
         android:layout_height="250dp"
         android:id="@+id/movie_poster_image"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:contentDescription="TODO" />
 </RelativeLayout>

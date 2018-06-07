@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:id="@+id/trailer_sheet"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:layout_height="match_parent"
     android:background="#FFF"
-    android:padding="16dp"
-    >
-    <ListView
-        android:id="@+id/trailer_list_view"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/trailer_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/trailers"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"/>
+
+    <ImageView
+        android:id="@+id/empty_state_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/noresults"
+        android:layout_centerInParent="true"
+        android:contentDescription="TODO" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/trailer_recycler_view"
+        android:layout_below="@+id/trailer_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </ListView>
-</LinearLayout>
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

@@ -1,7 +1,6 @@
 # Popular Movies
 
-![screen](https://raw.githubusercontent.com/knightcube/popular_movies_stage1/master/media/Screenshot_20180301-192259.png)
-![screen](https://raw.githubusercontent.com/knightcube/popular_movies_stage1/master/media/Screenshot_20180301-192305.png)
+![Alt Text](https://github.com/knightcube/popular_movies_stage_2/blob/master/screenshots/WhatsApp-Video-2018-06-07-at-20.39.40.gif)
 
 # Description
 This app lists movies according to 2 filters - Popularity and Top Rated movies.

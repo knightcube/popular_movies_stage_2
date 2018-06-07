@@ -1,6 +1,6 @@
 # Popular Movies
 
-![Alt Text](https://github.com/knightcube/popular_movies_stage_2/blob/master/screenshots/WhatsApp-Video-2018-06-07-at-20.39.40.gif)
+<img src="https://github.com/knightcube/popular_movies_stage_2/blob/master/screenshots/WhatsApp-Video-2018-06-07-at-20.39.40.gif" width="300" height="550" />
 
 # Description
 This app lists movies according to 2 filters - Popularity and Top Rated movies.
